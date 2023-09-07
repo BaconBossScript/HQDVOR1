@@ -1,0 +1,39 @@
+if game.PlaceId == 14531793421 then
+ 
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "BaconBoss Hub | HQ DVOR AGENCY", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+_G.inf = true
+
+local Player = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+function inf()
+     while _G.inf == true do
+         for i,v in pairs (game:GetService("Workspace").Coins:GetDescendants()) do
+            if v.Name == "Part" then
+                Player.CFrame = v.CFrame
+                wait(0.1)
+            end
+        end
+    end
+end
+
+local MainTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+MainTab:AddLabel("Note: This For The Third Quest")
+MainTab:AddLabel("Beat The Minigame Without Damage For First Quest And 5k Coins")
+
+MainTab:AddToggle({
+	Name = "Auto Coins",
+	Default = false,
+	Callback = function(Value)
+		_G.inf = Value
+        inf()
+	end    
+})
+
+end
